@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Check Yo' Self</title>
+    <link rel='stylesheet' type='text/css' href='reset.css'>
+    <link rel='sytlesheet' type='text/css' href='sytles.css'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1>CHECK YO' SELF</h1>
+      <label class='label'>
+        <img src='images/search.svg' class='img img--search' alt='search-icon' />
+        <input type='text' class='input input--search'  placeholder='Search' />
+      </label>
+    </header>
+    <nav>
+      <label class='label'>
+        Task Title
+        <input type='text' class='input input--title'>
+      </label>
+      <div class='mid-section'>
+        <label class='mid-section__label'>
+          Task Item
+          <input type='text' class='input input--item'>
+          <button class='btn btn--search'><img src='images/search.svg' class='btn--search__img' alt='add-symbol' /></button>
+        </label>
+      <button class='btn btn--make-task'>Make Task List</button>
+      <button class='btn btn--clear'>Clear All</button>
+      </div>
+      <button class='btn btn--filter'>Filter by Urgency</button>
+    </nav>
+    <main>
+    </main>
+      <template class='template'>
+        <article class='template__card' data-id=${id}>
+          <div class='card__top'>
+            <h2>Task Title</h2>
+          </div>
+          <div class='card__mid'>
+            <img>
+            <p></p>
+          </div>
+          <div class='card-bottom'>
+            <img src='' class='img img--urgent' alt='urgent-icon' />
+            <label class='card__label'>
+              <img src='images/delete.svg' class='img img--delete' alt='delete-icon' />
+              DELETE
+            </label>
+          </div>
+        </article>
+      </template>
+    <script type='text/javascript' src='todo-list.js'></script>
+    <script type='text/javascript' src='main.js'></script>
+  </body>
+</html> 
+
+
+
+
+
