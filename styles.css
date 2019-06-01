@@ -91,6 +91,19 @@ body {
   padding-bottom: 30px;
 }
 
+.nav__container {
+  margin-left: 10px;
+}
+
+.nav__container--bullet:before {
+  content: '';
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background-image: url(images/delete-list-item.svg);
+  margin-right: 5px;
+}
+
 .nav__top__input--title {
   margin-top: 5px;
 }

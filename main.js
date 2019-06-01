@@ -9,9 +9,10 @@ var filterBtn = document.querySelector('#js-filter-btn');
 var urgentBtn = document.querySelector('#js-urgent-btn');
 var deleteBtn = document.querySelector('#js-delete-btn');
 var cardSection = document.querySelector('#js-card-section');
+var taskList = document.querySelector('#js-task-list');
 
 // cardSection.addEventListener('click',handleCardActions);
-// addBtn.addEventListener('click', );
+addBtn.addEventListener('click', addTaskList);
 // makeTaskBtn.addEventListener('click', );
 // cleanBtn.addEventListener('click', );
 // filterBtn.addEventListener('click', );
@@ -21,3 +22,7 @@ var cardSection = document.querySelector('#js-card-section');
 // titleInput.addEventListener('keyup', );
 // itemInput.addEventListener('keyup', );
 
+function addTaskList() {
+  taskList.insertAdjacentHTML('beforeend', `<li class='nav__container--bullet'>${itemInput.value}</li>`);
+  itemInput.value = '';
+}
