@@ -22,13 +22,11 @@ body {
   border: 2px solid #1F1F3D;
   font-size: 1em;
   padding: 10px;
-  margin-right: 50px;
   width: 90%;
 }
 
 .label {
   color: #F3F6F7;
-  display: inline-block;
   font-size: .8em;
 }
 
@@ -39,7 +37,7 @@ body {
   display: block;
   font-size: 1em;
   font-weight: 600;
-  margin-top: 10px;
+  margin-top: 20px;
   padding: 10px;
   width: 100%;
 }
@@ -65,6 +63,7 @@ h1 {
 }
 
 .header__label {
+  display: flex;
   padding: 10px;
 }
 
@@ -87,23 +86,32 @@ nav {
   margin: 10px;
 }
 
+.nav-mid {
+  border-bottom: 1px solid black;
+  padding-bottom: 30px;
+}
+
 .input--title {
   margin-top: 5px;
 }
 
-.label--input {
+.label--item {
   display: flex;
-  flex-direction: row;
+  align-items: center;
 }
 
 .input--item {
   margin-top: 5px;
-  width: 70%;
 }
 
 .btn--add {
   background-color: #1F1F3D;
-  padding: 20px;
+  height: 30px;
+  padding: 5px;
+}
+
+.btn--filter {
+  margin-top: 30px;
 }
 
 /*main section*/
@@ -113,3 +121,61 @@ main {
 }
 
 /*card section*/
+.template__card {
+  background-color: #FAFDFF;
+  border: 1px solid #C7D3D8;
+  margin: 5%;
+  width: 40%;
+}
+
+.card__top {
+  padding: 10px;
+  border-bottom: 1px solid #C7D3D8;
+}
+
+h2 {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.card__mid {
+  margin: 20px 10px;
+}
+
+ul {
+  list-style: none;
+  margin: 10px;
+}
+
+li {
+  font-size: 1em;
+  margin: 10px 0;
+}
+
+li:before {
+  content: '';
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background-image: url(images/checkbox.svg);
+  margin-right: 5px;
+}
+
+.img--checkbox {
+  margin-right: 10px;
+}
+
+.card-bottom {
+  border-top: 1px solid #C7D3D8;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.card__urgent,
+.card__delete {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
