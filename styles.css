@@ -118,14 +118,21 @@ body {
 .main {
   background-color: #F3F6F7;
   grid-area: main;
+  padding: 30px;
+  height: auto;
+  columns: 2 250px;
+  column-gap: 30px;
 }
 
 /*card section*/
 .main__template--card {
   background-color: #FAFDFF;
-  border: 1px solid #C7D3D8;
-  margin: 5%;
-  width: 40%;
+  border: 2px solid #C7D3D8;
+  break-inside: avoid;
+  margin-bottom: 30px;
+  min-height: 250px;
+  padding: 10px 0 0 0;
+  width: 100%;
 }
 
 .main__template--card--top {
