@@ -3,52 +3,65 @@
   <head>
     <title>Check Yo' Self</title>
     <link rel='stylesheet' type='text/css' href='reset.css'>
-    <link rel='sytlesheet' type='text/css' href='sytles.css'>
+    <link rel='stylesheet' type='text/css' href='styles.css'>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,800&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
-      <h1>CHECK YO' SELF</h1>
-      <label class='label'>
+      <h1>CHECK <span class='h1__yellow'>YO'</span> SELF</h1>
+      <label class='header__label'>
         <img src='images/search.svg' class='img img--search' alt='search-icon' />
         <input type='text' class='input input--search'  placeholder='Search' />
       </label>
     </header>
     <nav>
-      <label class='label'>
-        Task Title
-        <input type='text' class='input input--title'>
-      </label>
-      <div class='mid-section'>
-        <label class='mid-section__label'>
+      <div class='nav-top'>
+        <label class='label'>
+          Task Title
+          <input type='text' class='input input--title'>
+        </label>
+      </div>
+      <div class='nav-mid'>
+        <label class='label'>
           Task Item
-          <input type='text' class='input input--item'>
-          <button class='btn btn--search'><img src='images/search.svg' class='btn--search__img' alt='add-symbol' /></button>
+          <div class='label--item'>
+            <input type='text' class='input input--item'>
+            <img src='images/plus.svg' class='btn--add' alt='add-symbol' />
+          </div>
         </label>
       <button class='btn btn--make-task'>Make Task List</button>
       <button class='btn btn--clear'>Clear All</button>
       </div>
-      <button class='btn btn--filter'>Filter by Urgency</button>
+      <div class='nav-bot'>
+        <button class='btn btn--filter'>Filter by Urgency</button>
+      </div>
     </nav>
     <main>
-    </main>
-      <template class='template'>
-        <article class='template__card' data-id=${id}>
+       <article class='template__card' data-id=${id}>
           <div class='card__top'>
             <h2>Task Title</h2>
           </div>
           <div class='card__mid'>
-            <img>
-            <p></p>
+            <ul>
+              <li>Don't ever play yourself.</li>
+              <li>Every chance I get, I water the plants.</li>
+              <li>Lion! Cloth talk.</li>
+            </ul>
           </div>
           <div class='card-bottom'>
-            <img src='' class='img img--urgent' alt='urgent-icon' />
-            <label class='card__label'>
+            <label class='card__urgent'>
+              <img src='images/urgent.svg' class='img img--urgent' alt='urgent-icon' />
+              URGENT
+            </label>
+            <label class='card__delete'>
               <img src='images/delete.svg' class='img img--delete' alt='delete-icon' />
               DELETE
             </label>
           </div>
         </article>
+    </main>
+      <template class='template'>
+       
       </template>
     <script type='text/javascript' src='todo-list.js'></script>
     <script type='text/javascript' src='main.js'></script>
