@@ -10,9 +10,11 @@ var urgentBtn = document.querySelector('#js-urgent-btn');
 var deleteBtn = document.querySelector('#js-delete-btn');
 var cardSection = document.querySelector('#js-card-section');
 var taskList = document.querySelector('#js-task-list');
+addBtn.disabled = true;
 
 // cardSection.addEventListener('click',handleCardActions);
 addBtn.addEventListener('click', addTaskList);
+taskList.addEventListener('click', removeFromTaskList)
 // makeTaskBtn.addEventListener('click', );
 // cleanBtn.addEventListener('click', );
 // filterBtn.addEventListener('click', );
@@ -20,9 +22,22 @@ addBtn.addEventListener('click', addTaskList);
 // deleteBtn.addEventListener('click', );
 // searchInput.addEventListener('keyup', );
 // titleInput.addEventListener('keyup', );
-// itemInput.addEventListener('keyup', );
+itemInput.addEventListener('keyup', disableBtns);
 
 function addTaskList() {
   taskList.insertAdjacentHTML('beforeend', `<li class='nav__container--bullet'>${itemInput.value}</li>`);
   itemInput.value = '';
-}
+  addBtn.disabled = true;
+};
+
+function disableBtns() {
+  var emptyInput = itemInput.value === '';
+  addBtn.disabled = emptyInput;
+};
+
+function removeFromTaskList(e) {
+  if (e.target.className === 'nav__container--bullet') {
+    console.log('e.target');
+    e.target.remove();
+  }
+};
