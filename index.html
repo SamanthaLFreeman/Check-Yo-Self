@@ -3,32 +3,36 @@
   <head>
     <title>Check Yo' Self</title>
     <link rel='stylesheet' type='text/css' href='reset.css'>
-    <link rel='sytlesheet' type='text/css' href='sytles.css'>
+    <link rel='stylesheet' type='text/css' href='styles.css'>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,800&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
-      <h1>CHECK YO' SELF</h1>
-      <label class='label'>
+      <h1>CHECK <span class='h1__yellow'>YO'</span> SELF</h1>
+      <label class='header__label'>
         <img src='images/search.svg' class='img img--search' alt='search-icon' />
         <input type='text' class='input input--search'  placeholder='Search' />
       </label>
     </header>
     <nav>
-      <label class='label'>
-        Task Title
-        <input type='text' class='input input--title'>
-      </label>
-      <div class='mid-section'>
-        <label class='mid-section__label'>
+      <div class='nav-top'>
+        <label class='label'>
+          Task Title
+          <input type='text' class='input input--title'>
+        </label>
+      </div>
+      <div class='nav-mid'>
+        <label class='label label--item'>
           Task Item
           <input type='text' class='input input--item'>
-          <button class='btn btn--search'><img src='images/search.svg' class='btn--search__img' alt='add-symbol' /></button>
+          <button class='btn--add'><img src='images/plus.svg' class='btn--add__img' alt='add-symbol' /></button>
         </label>
       <button class='btn btn--make-task'>Make Task List</button>
       <button class='btn btn--clear'>Clear All</button>
       </div>
-      <button class='btn btn--filter'>Filter by Urgency</button>
+      <div class='nav-bot'>
+        <button class='btn btn--filter'>Filter by Urgency</button>
+      </div>
     </nav>
     <main>
     </main>

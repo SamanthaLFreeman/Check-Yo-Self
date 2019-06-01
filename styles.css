@@ -1,3 +1,115 @@
+* {
+/*  border: 1px solid red;
+*/}
+
 body {
+  display: grid;
   font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  grid-template-areas:
+    "header header"
+    "nav main";
+  grid-template-columns: 25% 75%;
+  grid-template-rows: 10%;
+  height: 100vh;
 }
+
+.img {
+  width: 25px;
+}
+
+.input {
+  border: 2px solid #1F1F3D;
+  font-size: 1em;
+  padding: 10px;
+  margin-right: 50px;
+  width: 90%;
+}
+
+.label {
+  color: #F3F6F7;
+  display: inline-block;
+  font-size: .8em;
+}
+
+.btn {
+  background-color: #1F1F3D;
+  border: none;
+  color: #FFF;
+  display: block;
+  font-size: 1em;
+  font-weight: 600;
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+}
+
+/*header section*/
+header {
+  background-color: #1F1F3D;
+  display: flex;
+  grid-area: header;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  color: #FFF;
+  font-size: 2em;
+  font-weight: 800;
+  padding: 10px;
+}
+
+.h1__yellow {
+  color: #FFC30C;
+}
+
+.header__label {
+  padding: 10px;
+}
+
+.img--search {
+  background-color: #F3F6F7;
+  height: 20px;
+  padding: 8px;
+  vertical-align: middle;
+}
+
+/*nav bar section*/
+nav {
+  background-color: #587A8A;
+  grid-area: nav;
+}
+
+.nav-top,
+.nav-mid,
+.nav-bot {
+  margin: 10px;
+}
+
+.input--title {
+  margin-top: 5px;
+}
+
+.label--input {
+  display: flex;
+  flex-direction: row;
+}
+
+.input--item {
+  margin-top: 5px;
+  width: 70%;
+}
+
+.btn--add {
+  background-color: #1F1F3D;
+  padding: 20px;
+}
+
+/*main section*/
+main {
+  background-color: #F3F6F7;
+  grid-area: main;
+}
+
+/*card section*/
