@@ -43,7 +43,7 @@ body {
 }
 
 /*header section*/
-header {
+.header {
   background-color: #1F1F3D;
   display: flex;
   grid-area: header;
@@ -51,14 +51,14 @@ header {
   align-items: center;
 }
 
-h1 {
+.header__h1 {
   color: #FFF;
   font-size: 2em;
   font-weight: 800;
   padding: 10px;
 }
 
-.h1__yellow {
+.header__h1-yellow {
   color: #FFC30C;
 }
 
@@ -67,7 +67,7 @@ h1 {
   padding: 10px;
 }
 
-.img--search {
+.header__label__img--search {
   background-color: #F3F6F7;
   height: 20px;
   padding: 8px;
@@ -75,84 +75,91 @@ h1 {
 }
 
 /*nav bar section*/
-nav {
+.nav {
   background-color: #587A8A;
   grid-area: nav;
 }
 
-.nav-top,
-.nav-mid,
-.nav-bot {
+.nav__top,
+.nav__mid,
+.nav__bot {
   margin: 10px;
 }
 
-.nav-mid {
+.nav__mid {
   border-bottom: 1px solid black;
   padding-bottom: 30px;
 }
 
-.input--title {
+.nav__top__input--title {
   margin-top: 5px;
 }
 
-.label--item {
+.nav__mid--label--stack {
   display: flex;
   align-items: center;
 }
 
-.input--item {
+.nav__mid__input--item {
   margin-top: 5px;
 }
 
-.btn--add {
+.nav__mid__btn--plus {
   background-color: #1F1F3D;
   height: 30px;
   padding: 5px;
 }
 
-.btn--filter {
+.nav__mid__btn--filter {
   margin-top: 30px;
 }
 
 /*main section*/
-main {
+.main {
   background-color: #F3F6F7;
   grid-area: main;
+  padding: 30px;
+  height: auto;
+  columns: 2 250px;
+  column-gap: 30px;
 }
 
 /*card section*/
-.template__card {
+.main__template--card {
   background-color: #FAFDFF;
-  border: 1px solid #C7D3D8;
-  margin: 5%;
-  width: 40%;
+  border: 2px solid #C7D3D8;
+  break-inside: avoid;
+  margin-bottom: 30px;
+  min-height: 250px;
+  padding: 10px 0 0 0;
+  width: 100%;
 }
 
-.card__top {
+.main__template--card--top {
   padding: 10px;
   border-bottom: 1px solid #C7D3D8;
 }
 
-h2 {
+.main__template--card--title {
   font-size: 1.2em;
   font-weight: 700;
 }
 
-.card__mid {
+.main__template--card--mid {
   margin: 20px 10px;
 }
 
-ul {
+.main__template--card--list {
   list-style: none;
   margin: 10px;
 }
 
-li {
+.main__template--card--bullet {
   font-size: 1em;
   margin: 10px 0;
 }
 
-li:before {
+.main__template--card--bullet:before {
   content: '';
   display: inline-block;
   height: 20px;
@@ -165,15 +172,15 @@ li:before {
   margin-right: 10px;
 }
 
-.card-bottom {
+.main__template--card--bottom {
   border-top: 1px solid #C7D3D8;
   display: flex;
   justify-content: space-between;
   padding: 10px;
 }
 
-.card__urgent,
-.card__delete {
+.main__template--card__label--urgent,
+.main__template--card__label--delete {
   align-items: center;
   display: flex;
   flex-direction: column;
