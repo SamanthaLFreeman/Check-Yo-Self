@@ -7,60 +7,60 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,800&display=swap" rel="stylesheet">
   </head>
   <body>
-    <header>
-      <h1>CHECK <span class='h1__yellow'>YO'</span> SELF</h1>
+    <header class='header'>
+      <h1 class='header__h1'>CHECK <span class='header__h1-yellow'>YO'</span> SELF</h1>
       <label class='header__label'>
-        <img src='images/search.svg' class='img img--search' alt='search-icon' />
-        <input type='text' class='input input--search'  placeholder='Search' />
+        <img src='images/search.svg' class='img header__label__img--search' alt='search-icon' />
+        <input type='text' class='input header__label__input--search' id='js-input-search' placeholder='Search' />
       </label>
     </header>
-    <nav>
-      <div class='nav-top'>
-        <label class='label'>
+    <nav class='nav'>
+      <div class='nav__top'>
+        <label class='nav__top--label'>
           Task Title
-          <input type='text' class='input input--title'>
+          <input type='text' class='input nav__top__input--title' id='js-input-title'>
         </label>
       </div>
-      <div class='nav-mid'>
-        <label class='label'>
+      <div class='nav__mid'>
+        <label class='nav__mid--label'>
           Task Item
-          <div class='label--item'>
-            <input type='text' class='input input--item'>
-            <img src='images/plus.svg' class='btn--add' alt='add-symbol' />
+          <div class='nav__mid--label--stack'>
+            <input type='text' class='input nav__mid__input--item' id='js-input-item'>
+            <img src='images/plus.svg' class='nav__mid__btn--plus' id='js-plus-btn' alt='add-symbol' />
           </div>
         </label>
-      <button class='btn btn--make-task'>Make Task List</button>
-      <button class='btn btn--clear'>Clear All</button>
+        <button class='btn nav__mid__btn--make' id='js-make-task-btn'>Make Task List</button>
+        <button class='btn nav__mid__btn--clear' id='js-clear-btn'>Clear All</button>
       </div>
-      <div class='nav-bot'>
-        <button class='btn btn--filter'>Filter by Urgency</button>
+      <div class='nav__bot'>
+        <button class='btn nav__mid__btn--filter' id='js-filter-btn'>Filter by Urgency</button>
       </div>
     </nav>
-    <main>
-       <article class='template__card' data-id=${id}>
-          <div class='card__top'>
-            <h2>Task Title</h2>
+    <main class='main'>
+       <article class='main__template--card' data-id=${id}>
+          <div class='main__template--card--top'>
+            <h2 class='main__template--card--title'>Task Title</h2>
           </div>
-          <div class='card__mid'>
-            <ul>
-              <li>Don't ever play yourself.</li>
-              <li>Every chance I get, I water the plants.</li>
-              <li>Lion! Cloth talk.</li>
+          <div class='main__template--card--mid'>
+            <ul class='main__template--card--list'>
+              <li class='main__template--card--bullet'>Don't ever play yourself.</li>
+              <li class='main__template--card--bullet'>Every chance I get, I water the plants.</li>
+              <li class='main__template--card--bullet'>Lion! Cloth talk.</li>
             </ul>
           </div>
-          <div class='card-bottom'>
-            <label class='card__urgent'>
-              <img src='images/urgent.svg' class='img img--urgent' alt='urgent-icon' />
+          <div class='main__template--card--bottom'>
+            <label class='main__template--card__label--urgent'>
+              <img src='images/urgent.svg' class='img main__template--card__img--urgent' id='js-urgent-btn' alt='urgent-icon' />
               URGENT
             </label>
-            <label class='card__delete'>
-              <img src='images/delete.svg' class='img img--delete' alt='delete-icon' />
+            <label class='main__template--card__label--delete'>
+              <img src='images/delete.svg' class='img main__template--card__img--delete' id='js-delete-btn' alt='delete-icon' />
               DELETE
             </label>
           </div>
         </article>
     </main>
-      <template class='template'>
+      <template class='main__template'>
        
       </template>
     <script type='text/javascript' src='todo-list.js'></script>
