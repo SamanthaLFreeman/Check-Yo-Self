@@ -10,14 +10,14 @@ var urgentBtn = document.querySelector('#js-urgent-btn');
 var deleteBtn = document.querySelector('#js-delete-btn');
 var cardSection = document.querySelector('#js-card-section');
 
-cardSection.addEventListener('click',handleCardActions);
-addBtn.addEventListener('click', );
-makeTaskBtn.addEventListener('click', );
-cleanBtn.addEventListener('click', );
-filterBtn.addEventListener('click', );
-urgentBtn.addEventListener('click', );
-deleteBtn.addEventListener('click', );
-searchInput.addEventListener('keyup', );
-titleInput.addEventListener('keyup', );
-itemInput.addEventListener('keyup', );
+// cardSection.addEventListener('click',handleCardActions);
+// addBtn.addEventListener('click', );
+// makeTaskBtn.addEventListener('click', );
+// cleanBtn.addEventListener('click', );
+// filterBtn.addEventListener('click', );
+// urgentBtn.addEventListener('click', );
+// deleteBtn.addEventListener('click', );
+// searchInput.addEventListener('keyup', );
+// titleInput.addEventListener('keyup', );
+// itemInput.addEventListener('keyup', );
 
