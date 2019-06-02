@@ -15,8 +15,8 @@ clearBtn.disabled = true;
 
 // cardSection.addEventListener('click',handleCardActions);
 addBtn.addEventListener('click', addTaskList);
-taskList.addEventListener('click', removeFromTaskList)
-// makeTaskBtn.addEventListener('click', );
+taskList.addEventListener('click', removeFromTaskList);
+makeTaskBtn.addEventListener('click', saveToDo);
 clearBtn.addEventListener('click', clearNav);
 // filterBtn.addEventListener('click', );
 // urgentBtn.addEventListener('click', );
@@ -50,4 +50,13 @@ function disableClearBtn() {
   var allEmptyInputs = titleInput.value === '';
   clearBtn.disabled = allEmptyInputs;
 }
+
+function saveToDo() {
+  var tasks = document.querySelector('.nav__container--bullet');
+  var toDo = new ToDoList(Date.now(), titleInput.value, tasks.innerText);
+  toDoArray.push(toDo);
+  toDo.saveToStorage(toDoArray);
+}
+
+
 
