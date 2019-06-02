@@ -10,8 +10,6 @@ var urgentBtn = document.querySelector('#js-urgent-btn');
 var deleteBtn = document.querySelector('#js-delete-btn');
 var cardSection = document.querySelector('#js-card-section');
 var taskList = document.querySelector('#js-task-list');
-addBtn.disabled = true;
-clearBtn.disabled = true;
 
 // cardSection.addEventListener('click',handleCardActions);
 addBtn.addEventListener('click', addTaskList);
@@ -23,7 +21,9 @@ clearBtn.addEventListener('click', clearNav);
 // deleteBtn.addEventListener('click', );
 // searchInput.addEventListener('keyup', );
 titleInput.addEventListener('keyup', disableClearBtn);
+itemInput.addEventListener('keyup', disableClearBtn);
 itemInput.addEventListener('keyup', disableAddBtn);
+
 
 function pageLoad() {
   var newArray = [];
@@ -42,11 +42,18 @@ function addTaskList() {
   taskList.insertAdjacentHTML('beforeend', `<li class='nav__container--bullet'>${itemInput.value}</li>`);
   itemInput.value = '';
   addBtn.disabled = true;
+  makeTaskBtn.disabled = false;
 };
 
 function disableAddBtn() {
   var emptyItemInput = itemInput.value === '';
   addBtn.disabled = emptyItemInput;
+};
+
+function disableClearBtn() {
+  if (titleInput.value === '' || itemInput.value === '') {
+    clearBtn.disabled = false;
+  }
 };
 
 function removeFromTaskList(e) {
@@ -59,11 +66,7 @@ function clearNav() {
   titleInput.value = '';
   itemInput.value = '';
   taskList.innerText = '';
-};
-
-function disableClearBtn() {
-  var allEmptyInputs = titleInput.value === '';
-  clearBtn.disabled = allEmptyInputs;
+  clearBtn.disabled = true;
 };
 
 function saveToDo(objectArray) {
@@ -98,6 +101,7 @@ function createCard(toDo) {
   for (var i = 0; i < addLiArray.length; i++) {
     objectTask += addLiArray[i];
   }
+  removeMessageCard();
   cardSection.insertAdjacentHTML('afterbegin',
     `   <article class='main__template--card' data-id=${toDo.id}>
           <div class='main__template--card--top'>
@@ -121,4 +125,12 @@ function createCard(toDo) {
         </article>`
 )
   clearNav();
+  makeTaskBtn.disabled = true;
+};
+
+function removeMessageCard() {
+  var welcomeMessage = document.querySelector('#js-card--example');
+  if (cardSection.contains(welcomeMessage)) {
+    cardSection.removeChild(welcomeMessage);
+  }
 };
