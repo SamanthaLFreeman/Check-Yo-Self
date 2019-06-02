@@ -18,34 +18,39 @@
       <div class='nav__top'>
         <label class='nav__top--label'>
           Task Title
-          <input type='text' class='input nav__top__input--title' id='js-input-title'>
+          <input type='text' class='input nav__top__input--title' id='js-input-title' placeholder='Add your title here'>
         </label>
+      </div>
+      <div class='nav__container'>
+        <ul class='nav__container--list' id='js-task-list'>
+        </ul>
       </div>
       <div class='nav__mid'>
         <label class='nav__mid--label'>
           Task Item
           <div class='nav__mid--label--stack'>
-            <input type='text' class='input nav__mid__input--item' id='js-input-item'>
-            <img src='images/plus.svg' class='nav__mid__btn--plus' id='js-plus-btn' alt='add-symbol' />
+            <input type='text' class='input nav__mid__input--item' id='js-input-item' placeholder='Add task here, then click "+"'>
+            <button id='js-plus-btn' disabled='true'>
+              <img src='images/plus.svg' class='nav__mid__btn--plus' alt='add-symbol' />
+            </button>
           </div>
         </label>
-        <button class='btn nav__mid__btn--make' id='js-make-task-btn'>Make Task List</button>
-        <button class='btn nav__mid__btn--clear' id='js-clear-btn'>Clear All</button>
+        <button class='btn nav__mid__btn--make' id='js-make-task-btn' disabled='true'>Make Task List</button>
+        <button class='btn nav__mid__btn--clear' id='js-clear-btn' disabled='true'>Clear All</button>
       </div>
       <div class='nav__bot'>
         <button class='btn nav__mid__btn--filter' id='js-filter-btn'>Filter by Urgency</button>
       </div>
     </nav>
     <main class='main' id='js-card-section'>
-       <article class='main__template--card' data-id=${id}>
+      <article class='main__template--card' id='js-card--example'data-id=${id}>
           <div class='main__template--card--top'>
-            <h2 class='main__template--card--title'>Task Title</h2>
+            <h2 class='main__template--card--title'>Example Task</h2>
           </div>
           <div class='main__template--card--mid'>
             <ul class='main__template--card--list'>
-              <li class='main__template--card--bullet'>Don't ever play yourself.</li>
-              <li class='main__template--card--bullet'>Every chance I get, I water the plants.</li>
-              <li class='main__template--card--bullet'>Lion! Cloth talk.</li>
+              <li class='main__template--card--bullet'>Add your own card.</li>
+              <li class='main__template--card--bullet'>Enter your task title and tasks on the left.</li>
             </ul>
           </div>
           <div class='main__template--card--bottom'>
@@ -60,9 +65,29 @@
           </div>
         </article>
     </main>
-      <template class='main__template'>
-       
-      </template>
+<!--       <template class='main__template'>
+        <article class='main__template--card' data-id=${id}>
+          <div class='main__template--card--top'>
+            <h2 class='main__template--card--title'>${title}</h2>
+          </div>
+          <div class='main__template--card--mid'>
+            <ul class='main__template--card--list'>
+              <li class='main__template--card--bullet'>Don't ever play yourself.</li>
+              ${task}
+            </ul>
+          </div>
+          <div class='main__template--card--bottom'>
+            <label class='main__template--card__label--urgent'>
+              <img src='images/urgent.svg' class='img main__template--card__img--urgent' id='js-urgent-btn' alt='urgent-icon' />
+              URGENT
+            </label>
+            <label class='main__template--card__label--delete'>
+              <img src='images/delete.svg' class='img main__template--card__img--delete' id='js-delete-btn' alt='delete-icon' />
+              DELETE
+            </label>
+          </div>
+        </article>
+      </template> -->
     <script type='text/javascript' src='todo-list.js'></script>
     <script type='text/javascript' src='main.js'></script>
   </body>
