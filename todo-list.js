@@ -7,7 +7,7 @@ class ToDoList {
   }
 
   saveToStorage(toDoArray) {
-    localStorage.setItem('toDos', JSON.stringify(toDoArray));
+    localStorage.setItem("toDos", JSON.stringify(toDoArray));
   }
 
   deleteFromStorage() {
@@ -16,6 +16,7 @@ class ToDoList {
 
 //should update the todo’s title and urgency
   updateToDo() {
+
   }
 
 //should update a task’s content and if it has been completed
