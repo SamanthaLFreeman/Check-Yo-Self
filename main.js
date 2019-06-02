@@ -56,7 +56,9 @@ function removeFromTaskList(e) {
 };
 
 function clearNav() {
-  location.reload(true);
+  titleInput.value = '';
+  itemInput.value = '';
+  taskList.innerText = '';
 };
 
 function disableClearBtn() {
@@ -69,6 +71,7 @@ function saveToDo(objectArray) {
   toDoArray.push(toDo);
   toDo.saveToStorage(toDoArray);
   createCard(toDo);
+  // displayTasks(toDo);
 };
 
 function createTasksArray() {
@@ -87,13 +90,13 @@ function createTasksArray() {
 // }
 
 function createCard(toDo) {
-  var stupidArray = [];
+  var addLiArray = [];
   var objectTask = '';
   for (var i = 0; i < toDo.tasks.length; i++) {
-    stupidArray.push(`<li class='main__template--card--bullet'>${toDo.tasks[i].task} </li>`);
+    addLiArray.push(`<li class='main__template--card--bullet'>${toDo.tasks[i].task} </li>`);
   }
-  for (var i = 0; i < stupidArray.length; i++) {
-    objectTask += stupidArray[i];
+  for (var i = 0; i < addLiArray.length; i++) {
+    objectTask += addLiArray[i];
   }
   cardSection.insertAdjacentHTML('afterbegin',
     `   <article class='main__template--card' data-id=${toDo.id}>
@@ -117,4 +120,5 @@ function createCard(toDo) {
           </div>
         </article>`
 )
+  clearNav();
 };
