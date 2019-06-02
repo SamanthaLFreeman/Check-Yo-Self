@@ -15,8 +15,8 @@ class ToDoList {
   }
 
 //should update the todo’s title and urgency
-  updateToDo() {
-
+  updateToDo(bulletIndex) {
+    this.tasks[bulletIndex].complete = !this.tasks[bulletIndex].complete;
   }
 
 //should update a task’s content and if it has been completed

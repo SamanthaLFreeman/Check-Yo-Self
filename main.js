@@ -11,7 +11,7 @@ var deleteBtn = document.querySelector('#js-delete-btn');
 var cardSection = document.querySelector('#js-card-section');
 var taskList = document.querySelector('#js-task-list');
 
-// cardSection.addEventListener('click',handleCardActions);
+cardSection.addEventListener('click',handleCardActions);
 addBtn.addEventListener('click', addTaskList);
 taskList.addEventListener('click', removeFromTaskList);
 makeTaskBtn.addEventListener('click', createTasksArray);
@@ -96,7 +96,7 @@ function createCard(toDo) {
   var addLiArray = [];
   var objectTask = '';
   for (var i = 0; i < toDo.tasks.length; i++) {
-    addLiArray.push(`<li class='main__template--card--bullet'>${toDo.tasks[i].task} </li>`);
+    addLiArray.push(`<li class='main__template--card--bullet' data-index=${[i]}>${toDo.tasks[i].task} </li>`);
   }
   for (var i = 0; i < addLiArray.length; i++) {
     objectTask += addLiArray[i];
@@ -134,3 +134,26 @@ function removeMessageCard() {
     cardSection.removeChild(welcomeMessage);
   }
 };
+
+function findIndexInArray(id) {
+  var findIndex = toDoArray.findIndex(function(card) {
+   if (card.id === parseInt(id)) {
+    return card;
+   }
+  })
+
+  return findIndex;
+}
+
+function handleCardActions(e) {
+  if (e.target.className === 'main__template--card--bullet') {
+    changeTaskImg(e, e.target.parentNode.parentNode.parentNode.dataset.id);
+  }
+};
+
+function changeTaskImg(e, id) {
+  var foundIndexCard = findIndexInArray(id);
+  var bulletIndex = e.target.dataset.index;
+  toDoArray[foundIndexCard].updateToDo(bulletIndex);
+  toDoArray[foundIndexCard].saveToStorage(toDoArray);
+}
