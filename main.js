@@ -146,11 +146,15 @@ function findIndexInArray(id) {
   })
 
   return findIndex;
-}
+};
 
 function handleCardActions(e) {
   if (e.target.className === 'main__template--card--bullet' || e.target.className === 'main__template--card--bullet--active') {
     changeTaskImg(e, e.target.parentNode.parentNode.parentNode.dataset.id);
+  } else if (e.target.className === 'img main__template--card__img--delete') {
+    checkAllCheckboxes(e, e.target.parentNode.parentNode.parentNode.dataset.id);
+  } else if (e.target.className === 'img main__template--card__img--urgent') {
+    toggleUrgent(e, e.target.parentNode.parentNode.parentNode.dataset.id);
   }
 };
 
@@ -160,7 +164,7 @@ function changeTaskImg(e, id) {
   toDoArray[foundIndexCard].updateTask(bulletIndex);
   toDoArray[foundIndexCard].saveToStorage(toDoArray);
   changeImg(e, toDoArray[foundIndexCard]);
-}
+};
 
 function changeImg(e, card) {
   var bulletIndex = e.target.dataset.index;
@@ -170,4 +174,35 @@ function changeImg(e, card) {
   } else if (complete === false) {
     e.target.setAttribute('class', 'main__template--card--bullet');
   }
-}
+};
+
+function deleteCard(e, id) {
+  e.target.parentElement.parentElement.parentElement.remove();
+  toDoArray[id].deleteFromStorage(id);
+};
+
+function checkAllCheckboxes(e, id) {
+  var foundIndexCard = findIndexInArray(id);
+    var checkedOff = toDoArray[foundIndexCard].tasks.every(function(task){
+    return task.complete === true;
+  }) 
+    if (checkedOff === true) {
+      deleteCard(e, foundIndexCard);
+  }
+};
+
+function toggleUrgent(e, id) {
+  var foundIndexCard = findIndexInArray(id);
+  toDoArray[foundIndexCard].updateToDo();
+  toDoArray[foundIndexCard].saveToStorage(toDoArray);
+  var urgent = toDoArray[foundIndexCard].urgent;
+  urgentCardChange(e, urgent)
+};
+
+function urgentCardChange(e, urgent) {
+  if (urgent === false) {
+    e.target.setAttribute('src', 'images/urgent.svg');
+  } else {
+    e.target.setAttribute('src', 'images/urgent-active.svg');
+  }
+};
