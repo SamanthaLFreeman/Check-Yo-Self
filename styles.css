@@ -188,13 +188,6 @@ body {
   margin: 10px;
 }
 
-.main__template--card--bullet {
-  color: #1F1F3D;
-  display: flex;
-  font-size: 1.1em;
-  margin: 10px 0;
-}
-
 .main__template--card--bullet:before {
   content: '';
   display: inline-block;
@@ -204,6 +197,13 @@ body {
   margin-right: 5px;
 }
 
+.main__template--card--bullet {
+  color: #1F1F3D;
+  display: flex;
+  font-size: 1.1em;
+  margin: 10px 0;
+}
+
 .main__template--card--bullet--active:before {
   content: '';
   display: inline-block;
@@ -211,6 +211,14 @@ body {
   width: 20px;
   background-image: url(images/checkbox-active.svg);
   margin-right: 5px;
+}
+
+.main__template--card--bullet--active {
+  color: #3C6577;
+  display: flex;
+  font-style: italic;
+  font-size: 1.1em;
+  margin: 10px 0;
 }
 
 .img--checkbox {
