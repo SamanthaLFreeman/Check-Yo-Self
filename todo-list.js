@@ -10,8 +10,9 @@ class ToDoList {
     localStorage.setItem("toDos", JSON.stringify(toDoArray));
   }
 
-  deleteFromStorage() {
-
+  deleteFromStorage(index) {
+    toDoArray.splice(index, 1);
+    this.saveToStorage(toDoArray);
   }
 
 //should update the todo’s title and urgency

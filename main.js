@@ -146,11 +146,13 @@ function findIndexInArray(id) {
   })
 
   return findIndex;
-}
+};
 
 function handleCardActions(e) {
   if (e.target.className === 'main__template--card--bullet' || e.target.className === 'main__template--card--bullet--active') {
     changeTaskImg(e, e.target.parentNode.parentNode.parentNode.dataset.id);
+  } else if (e.target.className === 'img main__template--card__img--delete') {
+    deleteCard(e, e.target.parentNode.parentNode.parentNode.dataset.id);
   }
 };
 
@@ -160,7 +162,7 @@ function changeTaskImg(e, id) {
   toDoArray[foundIndexCard].updateTask(bulletIndex);
   toDoArray[foundIndexCard].saveToStorage(toDoArray);
   changeImg(e, toDoArray[foundIndexCard]);
-}
+};
 
 function changeImg(e, card) {
   var bulletIndex = e.target.dataset.index;
@@ -170,4 +172,13 @@ function changeImg(e, card) {
   } else if (complete === false) {
     e.target.setAttribute('class', 'main__template--card--bullet');
   }
-}
+};
+
+function deleteCard(e, id) {
+  var foundIndexCard = findIndexInArray(id);
+  console.log(toDoArray[foundIndexCard])
+  e.target.parentElement.parentElement.parentElement.remove();
+  toDoArray[foundIndexCard].deleteFromStorage(foundIndexCard);
+};
+
+
