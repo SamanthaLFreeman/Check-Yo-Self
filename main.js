@@ -152,7 +152,8 @@ function handleCardActions(e) {
   if (e.target.className === 'main__template--card--bullet' || e.target.className === 'main__template--card--bullet--active') {
     changeTaskImg(e, e.target.parentNode.parentNode.parentNode.dataset.id);
   } else if (e.target.className === 'img main__template--card__img--delete') {
-    deleteCard(e, e.target.parentNode.parentNode.parentNode.dataset.id);
+    // deleteCard(e, e.target.parentNode.parentNode.parentNode.dataset.id);
+    checkAllCheckboxes(e, e.target.parentNode.parentNode.parentNode.dataset.id)
   }
 };
 
@@ -175,10 +176,16 @@ function changeImg(e, card) {
 };
 
 function deleteCard(e, id) {
-  var foundIndexCard = findIndexInArray(id);
-  console.log(toDoArray[foundIndexCard])
   e.target.parentElement.parentElement.parentElement.remove();
-  toDoArray[foundIndexCard].deleteFromStorage(foundIndexCard);
+  toDoArray[id].deleteFromStorage(id);
 };
 
-
+function checkAllCheckboxes(e, id) {
+  var foundIndexCard = findIndexInArray(id);
+    var checkedOff = toDoArray[foundIndexCard].tasks.every(function(task){
+    return task.complete === true;
+  }) 
+    if (checkedOff === true) {
+      deleteCard(e, foundIndexCard);
+  }
+}
