@@ -24,7 +24,7 @@ clearBtn.addEventListener('click', clearNav);
 titleInput.addEventListener('keyup', disableClearBtn);
 itemInput.addEventListener('keyup', disableClearBtn);
 itemInput.addEventListener('keyup', disableAddBtn);
-
+// window.addEventListener('load', pageLoad)
 
 function pageLoad() {
   var newArray = [];
@@ -94,11 +94,12 @@ function createTasksArray() {
 // }
 
 function createCard(toDo) {
-  var complete = objectTask.complete ? 'main__template--card--bullet--active' :
   var addLiArray = [];
   var objectTask = '';
   for (var i = 0; i < toDo.tasks.length; i++) {
-    addLiArray.push(`<li class='${complete}' data-index=${[i]}>${toDo.tasks[i].task} </li>`);
+    var completeTask = toDo.tasks[i].complete === true ? 'main__template--card--bullet--active' : 'main__template--card--bullet';
+    addLiArray.push(`<li class=${completeTask} data-index=${[i]}>${toDo.tasks[i].task} </li>`);
+    console.log(completeTask)
   }
   for (var i = 0; i < addLiArray.length; i++) {
     objectTask += addLiArray[i];
@@ -165,10 +166,8 @@ function changeImg(e, card) {
   var bulletIndex = e.target.dataset.index;
   var complete = card.tasks[bulletIndex].complete
   if (complete === true) {
-    console.log('true');
     e.target.setAttribute('class', 'main__template--card--bullet--active');
   } else if (complete === false) {
-    console.log('false');
     e.target.setAttribute('class', 'main__template--card--bullet');
   }
 }
