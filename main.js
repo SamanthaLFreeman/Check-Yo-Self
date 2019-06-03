@@ -10,6 +10,7 @@ var urgentBtn = document.querySelector('#js-urgent-btn');
 var deleteBtn = document.querySelector('#js-delete-btn');
 var cardSection = document.querySelector('#js-card-section');
 var taskList = document.querySelector('#js-task-list');
+var listItemImg = document.querySelector('.main__template--card--bullet:before');
 
 cardSection.addEventListener('click',handleCardActions);
 addBtn.addEventListener('click', addTaskList);
@@ -129,9 +130,9 @@ function createCard(toDo) {
 };
 
 function removeMessageCard() {
-  var welcomeMessage = document.querySelector('#js-card--example');
-  if (cardSection.contains(welcomeMessage)) {
-    cardSection.removeChild(welcomeMessage);
+  var welcomeCard = document.querySelector('#js-card--example');
+  if (cardSection.contains(welcomeCard)) {
+    cardSection.removeChild(welcomeCard);
   }
 };
 
@@ -154,6 +155,18 @@ function handleCardActions(e) {
 function changeTaskImg(e, id) {
   var foundIndexCard = findIndexInArray(id);
   var bulletIndex = e.target.dataset.index;
-  toDoArray[foundIndexCard].updateToDo(bulletIndex);
+  toDoArray[foundIndexCard].updateTask(bulletIndex);
   toDoArray[foundIndexCard].saveToStorage(toDoArray);
+  changeImg(e, toDoArray[foundIndexCard]);
+}
+
+function changeImg(e, card) {
+  var bulletIndex = e.target.dataset.index;
+  // var bullet = document.querySelector('.main__template--card--bullet:before')
+  if (card.tasks[bulletIndex].complete === true) {
+    // listItemImg.classList.remove('.main__template--card--bullet:before')
+    listItemImg.getAttribute('.main__template--card--bullet--active')
+    listItemImg.classList.add('.main__template--card--bullet--active:before');
+    console.log(listItemImg)
+  }
 }

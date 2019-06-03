@@ -34,6 +34,7 @@ body {
 .btn {
   background-color: #1F1F3D;
   border: none;
+  border-radius: 3px;
   color: #FFF;
   display: block;
   font-size: 1em;
@@ -85,14 +86,20 @@ body {
   grid-area: nav;
 }
 
+.nav__top--label,
+.nav__mid--label {
+  color: #C7D3D8;
+  font-weight: 500;
+}
+
 .nav__top,
 .nav__mid,
 .nav__bot {
-  margin: 10px;
+  padding: 10px;
 }
 
 .nav__mid {
-  border-bottom: 1px solid black;
+  border-bottom: 1px inset #1F1F3D;
   padding-bottom: 30px;
 }
 
@@ -110,7 +117,10 @@ body {
 }
 
 .nav__top__input--title {
+  border: 2px solid #1F1F3D;
+  border-radius: 3px;
   margin-top: 5px;
+  width: 90%;
 }
 
 .nav__mid--label--stack {
@@ -119,10 +129,12 @@ body {
 }
 
 .nav__mid__input--item {
+  border: 2px solid #1F1F3D;
+  border-radius: 3px 0 0 3px;
   margin-top: 5px;
 }
 
-.nav__mid__btn--plus {
+.nav__mid__img--plus {
   background-color: #1F1F3D;
   height: 30px;
   padding: 5px;
@@ -148,7 +160,7 @@ body {
   border: 2px solid #C7D3D8;
   break-inside: avoid;
   margin-bottom: 30px;
-  min-height: 250px;
+  min-height: 160px;
   padding: 10px 0 0 0;
   width: 100%;
 }
@@ -159,6 +171,7 @@ body {
 }
 
 .main__template--card--title {
+  color: #1F1F3D;
   font-size: 1.2em;
   font-weight: 700;
 }
@@ -173,7 +186,9 @@ body {
 }
 
 .main__template--card--bullet {
-  font-size: 1em;
+  color: #1F1F3D;
+  display: flex;
+  font-size: 1.1em;
   margin: 10px 0;
 }
 
@@ -183,6 +198,15 @@ body {
   height: 20px;
   width: 20px;
   background-image: url(images/checkbox.svg);
+  margin-right: 5px;
+}
+
+.main__template--card--bullet--active:before {
+  content: '';
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background-image: url(images/checkbox-active.svg);
   margin-right: 5px;
 }
 
@@ -200,7 +224,14 @@ body {
 .main__template--card__label--urgent,
 .main__template--card__label--delete {
   align-items: center;
+  color: #3C6577;
   display: flex;
+  font-size: .8em;
   flex-direction: column;
   justify-content: flex-end;
+}
+
+.main__template--card__img--delete,
+.main__template--card__img--urgent {
+  padding-bottom: 5px;
 }
