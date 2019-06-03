@@ -10,8 +10,9 @@ var urgentBtn = document.querySelector('#js-urgent-btn');
 var deleteBtn = document.querySelector('#js-delete-btn');
 var cardSection = document.querySelector('#js-card-section');
 var taskList = document.querySelector('#js-task-list');
+var listItemImg = document.querySelector('.main__template--card--bullet:before');
 
-// cardSection.addEventListener('click',handleCardActions);
+cardSection.addEventListener('click',handleCardActions);
 addBtn.addEventListener('click', addTaskList);
 taskList.addEventListener('click', removeFromTaskList);
 makeTaskBtn.addEventListener('click', createTasksArray);
@@ -23,7 +24,7 @@ clearBtn.addEventListener('click', clearNav);
 titleInput.addEventListener('keyup', disableClearBtn);
 itemInput.addEventListener('keyup', disableClearBtn);
 itemInput.addEventListener('keyup', disableAddBtn);
-
+// window.addEventListener('load', pageLoad)
 
 function pageLoad() {
   var newArray = [];
@@ -96,7 +97,9 @@ function createCard(toDo) {
   var addLiArray = [];
   var objectTask = '';
   for (var i = 0; i < toDo.tasks.length; i++) {
-    addLiArray.push(`<li class='main__template--card--bullet'>${toDo.tasks[i].task} </li>`);
+    var completeTask = toDo.tasks[i].complete === true ? 'main__template--card--bullet--active' : 'main__template--card--bullet';
+    addLiArray.push(`<li class=${completeTask} data-index=${[i]}>${toDo.tasks[i].task} </li>`);
+    console.log(completeTask)
   }
   for (var i = 0; i < addLiArray.length; i++) {
     objectTask += addLiArray[i];
@@ -129,8 +132,42 @@ function createCard(toDo) {
 };
 
 function removeMessageCard() {
-  var welcomeMessage = document.querySelector('#js-card--example');
-  if (cardSection.contains(welcomeMessage)) {
-    cardSection.removeChild(welcomeMessage);
+  var welcomeCard = document.querySelector('#js-card--example');
+  if (cardSection.contains(welcomeCard)) {
+    cardSection.removeChild(welcomeCard);
   }
 };
+
+function findIndexInArray(id) {
+  var findIndex = toDoArray.findIndex(function(card) {
+   if (card.id === parseInt(id)) {
+    return card;
+   }
+  })
+
+  return findIndex;
+}
+
+function handleCardActions(e) {
+  if (e.target.className === 'main__template--card--bullet' || e.target.className === 'main__template--card--bullet--active') {
+    changeTaskImg(e, e.target.parentNode.parentNode.parentNode.dataset.id);
+  }
+};
+
+function changeTaskImg(e, id) {
+  var foundIndexCard = findIndexInArray(id);
+  var bulletIndex = e.target.dataset.index;
+  toDoArray[foundIndexCard].updateTask(bulletIndex);
+  toDoArray[foundIndexCard].saveToStorage(toDoArray);
+  changeImg(e, toDoArray[foundIndexCard]);
+}
+
+function changeImg(e, card) {
+  var bulletIndex = e.target.dataset.index;
+  var complete = card.tasks[bulletIndex].complete
+  if (complete === true) {
+    e.target.setAttribute('class', 'main__template--card--bullet--active');
+  } else if (complete === false) {
+    e.target.setAttribute('class', 'main__template--card--bullet');
+  }
+}
