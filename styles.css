@@ -71,13 +71,16 @@ body {
 
 .header__label__img--search {
   background-color: #F3F6F7;
-  height: 23px;
+  height: 31px;
   padding: 8px;
   border-radius: 3px 0 0 3px;
 }
 
 .header__label__input--search {
   border-radius: 0 3px 3px 0;
+  height: 27px;
+  margin-right: 2px;
+  width: 220px;
 }
 
 /*nav bar section*/
