@@ -110,6 +110,11 @@ body {
   margin-left: 10px;
 }
 
+.nav__container--bullet {
+  font-size: 1.1em;
+  color: #FFF;
+}
+
 .nav__container--bullet:before {
   content: '';
   display: inline-block;
