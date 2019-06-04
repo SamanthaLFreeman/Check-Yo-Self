@@ -202,7 +202,13 @@ function toggleUrgent(e, id) {
 function urgentCardChange(e, urgent) {
   if (urgent === false) {
     e.target.setAttribute('src', 'images/urgent.svg');
+    e.target.parentElement.parentElement.parentElement.setAttribute('class', 'main__template--card');
+    // e.target.closest('article').setAttribute('class', 'main__template--card--top');
+    // e.target.parentElement.parentElement.setAttribute('class', 'main__template--card--bottom');
   } else {
     e.target.setAttribute('src', 'images/urgent-active.svg');
+    e.target.parentElement.parentElement.parentElement.setAttribute('class', 'main__template--card--active');
+    // e.target.parentElement.parentElement.parentElement.parentElement.setAttribute('class', 'main__template--card--top--active');
+    // e.target.parentElement.parentElement.setAttribute('class', 'main__template--card--bottom--active');
   }
 };
