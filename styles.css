@@ -128,7 +128,6 @@ body {
 
 .nav__mid--label--stack {
   display: flex;
-  align-items: center;
 }
 
 .nav__mid__input--item {
@@ -138,9 +137,15 @@ body {
 }
 
 .nav__mid__img--plus {
-  background-color: #1F1F3D;
   height: 30px;
-  padding: 5px;
+}
+
+.nav__mid__btn--plus {
+  background-color: #1F1F3D;
+  border-radius: 0 3px 3px 0;
+  border: none;
+  height: 43px;
+  margin-top: 5px;
 }
 
 .nav__mid__btn--filter {
