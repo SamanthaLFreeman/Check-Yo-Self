@@ -272,8 +272,18 @@ body {
   align-items: center;
   color: #3C6577;
   display: flex;
-  font-size: .8em;
   flex-direction: column;
+  font-size: .8em;
+  justify-content: flex-end;
+}
+
+.main__template--card__label--urgent--active,
+.main__template--card__label--delete--active {
+  align-items: center;
+  color: #B23A25;
+  display: flex;
+  flex-direction: column;
+  font-size: .8em;
   justify-content: flex-end;
 }
 

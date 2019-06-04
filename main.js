@@ -10,7 +10,7 @@ var urgentBtn = document.querySelector('#js-urgent-btn');
 var deleteBtn = document.querySelector('#js-delete-btn');
 var cardSection = document.querySelector('#js-card-section');
 var taskList = document.querySelector('#js-task-list');
-var listItemImg = document.querySelector('.main__template--card--bullet:before');
+// var listItemImg = document.querySelector('.main__template--card--bullet:before');
 
 cardSection.addEventListener('click',handleCardActions);
 addBtn.addEventListener('click', addTaskList);
@@ -24,7 +24,6 @@ clearBtn.addEventListener('click', clearNav);
 titleInput.addEventListener('keyup', disableClearBtn);
 itemInput.addEventListener('keyup', disableClearBtn);
 itemInput.addEventListener('keyup', disableAddBtn);
-// window.addEventListener('load', pageLoad)
 
 function pageLoad() {
   var newArray = [];
@@ -104,10 +103,15 @@ function displayTasks(toDo) {
 
 function createCard(toDo) {
   var objectTask = displayTasks(toDo);
+  var urgentIcon = toDo.urgent ? 'images/urgent-active.svg' : 'images/urgent.svg';
+  var urgentLabel = toDo.urgent ? 'main__template--card__label--urgent--active' : 'main__template--card__label--urgent';
+  var urgentCard = toDo.urgent ? 'main__template--card--active' : 'main__template--card';
+  var urgentTopBorder = toDo.urgent ? 'main__template--card--top--active' : 'main__template--card--top';
+  var urgentBottomBorder = toDo.urgent ? 'main__template--card--bottom--active' : 'main__template--card--bottom';
   removeMessageCard();
   cardSection.insertAdjacentHTML('afterbegin',
-    `   <article class='main__template--card' data-id=${toDo.id}>
-          <div class='main__template--card--top'>
+    `   <article class='${urgentCard}' data-id=${toDo.id}>
+          <div class='${urgentTopBorder}'>
             <h2 class='main__template--card--title'>${toDo.title}</h2>
           </div>
           <div class='main__template--card--mid'>
@@ -115,9 +119,9 @@ function createCard(toDo) {
               ${objectTask}
             </ul>
           </div>
-          <div class='main__template--card--bottom'>
-            <label class='main__template--card__label--urgent'>
-              <img src='images/urgent.svg' class='img main__template--card__img--urgent' id='js-urgent-btn' alt='urgent-icon' />
+          <div class='${urgentBottomBorder}'>
+            <label class='${urgentLabel}'>
+              <img src='${urgentIcon}' class='img main__template--card__img--urgent' id='js-urgent-btn' alt='urgent-icon' />
               URGENT
             </label>
             <label class='main__template--card__label--delete'>
@@ -202,13 +206,15 @@ function toggleUrgent(e, id) {
 function urgentCardChange(e, urgent) {
   if (urgent === false) {
     e.target.setAttribute('src', 'images/urgent.svg');
-    e.target.parentElement.parentElement.parentElement.setAttribute('class', 'main__template--card');
-    // e.target.closest('article').setAttribute('class', 'main__template--card--top');
-    // e.target.parentElement.parentElement.setAttribute('class', 'main__template--card--bottom');
+    e.target.closest('label').setAttribute('class', 'main__template--card__label--urgent');
+    e.target.closest('article').setAttribute('class', 'main__template--card');
+    e.target.closest('article').querySelector('.main__template--card--top--active').setAttribute('class', 'main__template--card--top');
+    e.target.closest('div').setAttribute('class', 'main__template--card--bottom');
   } else {
     e.target.setAttribute('src', 'images/urgent-active.svg');
-    e.target.parentElement.parentElement.parentElement.setAttribute('class', 'main__template--card--active');
-    // e.target.parentElement.parentElement.parentElement.parentElement.setAttribute('class', 'main__template--card--top--active');
-    // e.target.parentElement.parentElement.setAttribute('class', 'main__template--card--bottom--active');
+    e.target.closest('label').setAttribute('class', 'main__template--card__label--urgent--active');
+    e.target.closest('article').setAttribute('class', 'main__template--card--active');
+    e.target.closest('article').querySelector('.main__template--card--top').setAttribute('class', 'main__template--card--top--active');
+    e.target.closest('div').setAttribute('class', 'main__template--card--bottom--active')
   }
 };
