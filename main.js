@@ -89,21 +89,21 @@ function createTasksArray() {
   saveToDo(objectArray);
 };
 
-// function displayTasks(toDo) {
-
-// }
-
-function createCard(toDo) {
+function displayTasks(toDo) {
   var addLiArray = [];
   var objectTask = '';
   for (var i = 0; i < toDo.tasks.length; i++) {
     var completeTask = toDo.tasks[i].complete === true ? 'main__template--card--bullet--active' : 'main__template--card--bullet';
     addLiArray.push(`<li class=${completeTask} data-index=${[i]}>${toDo.tasks[i].task} </li>`);
-    console.log(completeTask)
   }
   for (var i = 0; i < addLiArray.length; i++) {
     objectTask += addLiArray[i];
   }
+  return objectTask;
+};
+
+function createCard(toDo) {
+  var objectTask = displayTasks(toDo);
   removeMessageCard();
   cardSection.insertAdjacentHTML('afterbegin',
     `   <article class='main__template--card' data-id=${toDo.id}>
