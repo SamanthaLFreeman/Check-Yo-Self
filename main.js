@@ -20,7 +20,7 @@ clearBtn.addEventListener('click', clearNav);
 // filterBtn.addEventListener('click', );
 // urgentBtn.addEventListener('click', );
 // deleteBtn.addEventListener('click', );
-// searchInput.addEventListener('keyup', );
+searchInput.addEventListener('keyup', filterTitles);
 titleInput.addEventListener('keyup', disableClearBtn);
 itemInput.addEventListener('keyup', disableClearBtn);
 itemInput.addEventListener('keyup', disableAddBtn);
@@ -217,4 +217,16 @@ function urgentCardChange(e, urgent) {
     e.target.closest('article').querySelector('.main__template--card--top').setAttribute('class', 'main__template--card--top--active');
     e.target.closest('div').setAttribute('class', 'main__template--card--bottom--active')
   }
+};
+
+function filterTitles(e) {
+  var searchTextField = e.target.value.toLowerCase();
+  var results = toDoArray.filter(function(toDo) {
+      return toDo.title.toLowerCase().includes(searchTextField);
+    })
+  
+    cardSection.innerText = '';
+    results.forEach(function(toDo) {
+      createCard(toDo);
+    })
 };
