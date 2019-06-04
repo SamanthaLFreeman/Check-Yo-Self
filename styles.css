@@ -280,3 +280,27 @@ body {
 .main__template--card__img--urgent {
   padding-bottom: 5px;
 }
+
+@media screen and (max-width: 1000px) {
+  .main {
+    columns: auto;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  body {
+    display: inherit;
+  }
+  .nav__top__input--title {
+    width: 98%;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .header {
+    flex-direction: column;
+  }
+  .nav__top__input--title {
+    width: 97%;
+  }
+}
