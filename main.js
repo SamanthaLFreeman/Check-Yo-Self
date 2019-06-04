@@ -10,7 +10,7 @@ var urgentBtn = document.querySelector('#js-urgent-btn');
 var deleteBtn = document.querySelector('#js-delete-btn');
 var cardSection = document.querySelector('#js-card-section');
 var taskList = document.querySelector('#js-task-list');
-var listItemImg = document.querySelector('.main__template--card--bullet:before');
+// var listItemImg = document.querySelector('.main__template--card--bullet:before');
 
 cardSection.addEventListener('click',handleCardActions);
 addBtn.addEventListener('click', addTaskList);
@@ -24,7 +24,6 @@ clearBtn.addEventListener('click', clearNav);
 titleInput.addEventListener('keyup', disableClearBtn);
 itemInput.addEventListener('keyup', disableClearBtn);
 itemInput.addEventListener('keyup', disableAddBtn);
-// window.addEventListener('load', pageLoad)
 
 function pageLoad() {
   var newArray = [];
@@ -202,13 +201,15 @@ function toggleUrgent(e, id) {
 function urgentCardChange(e, urgent) {
   if (urgent === false) {
     e.target.setAttribute('src', 'images/urgent.svg');
-    e.target.parentElement.parentElement.parentElement.setAttribute('class', 'main__template--card');
-    // e.target.closest('article').setAttribute('class', 'main__template--card--top');
-    // e.target.parentElement.parentElement.setAttribute('class', 'main__template--card--bottom');
+    e.target.closest('label').setAttribute('class', 'main__template--card__label--urgent');
+    e.target.closest('article').setAttribute('class', 'main__template--card');
+    e.target.closest('article').querySelector('.main__template--card--top--active').setAttribute('class', 'main__template--card--top');
+    e.target.closest('div').setAttribute('class', 'main__template--card--bottom');
   } else {
     e.target.setAttribute('src', 'images/urgent-active.svg');
-    e.target.parentElement.parentElement.parentElement.setAttribute('class', 'main__template--card--active');
-    // e.target.parentElement.parentElement.parentElement.parentElement.setAttribute('class', 'main__template--card--top--active');
-    // e.target.parentElement.parentElement.setAttribute('class', 'main__template--card--bottom--active');
+    e.target.closest('label').setAttribute('class', 'main__template--card__label--urgent--active');
+    e.target.closest('article').setAttribute('class', 'main__template--card--active');
+    e.target.closest('article').querySelector('.main__template--card--top').setAttribute('class', 'main__template--card--top--active');
+    e.target.closest('div').setAttribute('class', 'main__template--card--bottom--active')
   }
 };
