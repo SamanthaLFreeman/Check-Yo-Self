@@ -103,10 +103,15 @@ function displayTasks(toDo) {
 
 function createCard(toDo) {
   var objectTask = displayTasks(toDo);
+  var urgentIcon = toDo.urgent ? 'images/urgent-active.svg' : 'images/urgent.svg';
+  var urgentLabel = toDo.urgent ? 'main__template--card__label--urgent--active' : 'main__template--card__label--urgent';
+  var urgentCard = toDo.urgent ? 'main__template--card--active' : 'main__template--card';
+  var urgentTopBorder = toDo.urgent ? 'main__template--card--top--active' : 'main__template--card--top';
+  var urgentBottomBorder = toDo.urgent ? 'main__template--card--bottom--active' : 'main__template--card--bottom';
   removeMessageCard();
   cardSection.insertAdjacentHTML('afterbegin',
-    `   <article class='main__template--card' data-id=${toDo.id}>
-          <div class='main__template--card--top'>
+    `   <article class='${urgentCard}' data-id=${toDo.id}>
+          <div class='${urgentTopBorder}'>
             <h2 class='main__template--card--title'>${toDo.title}</h2>
           </div>
           <div class='main__template--card--mid'>
@@ -114,9 +119,9 @@ function createCard(toDo) {
               ${objectTask}
             </ul>
           </div>
-          <div class='main__template--card--bottom'>
-            <label class='main__template--card__label--urgent'>
-              <img src='images/urgent.svg' class='img main__template--card__img--urgent' id='js-urgent-btn' alt='urgent-icon' />
+          <div class='${urgentBottomBorder}'>
+            <label class='${urgentLabel}'>
+              <img src='${urgentIcon}' class='img main__template--card__img--urgent' id='js-urgent-btn' alt='urgent-icon' />
               URGENT
             </label>
             <label class='main__template--card__label--delete'>
