@@ -20,7 +20,7 @@ body {
 
 .input {
   font-size: 1em;
-  padding: 10px;
+  padding: 10px 5px;
   width: 98%;
   height: 19px;
   border: none;
@@ -128,7 +128,7 @@ body {
   border: 2px solid #1F1F3D;
   border-radius: 3px;
   margin-top: 5px;
-  width: 90%;
+  width: 95%;
 }
 
 .nav__mid--label--stack {
