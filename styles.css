@@ -209,6 +209,7 @@ body {
   height: 20px;
   width: 20px;
   background-image: url(images/checkbox.svg);
+  background-repeat: no-repeat;
   margin-right: 5px;
 }
 
@@ -225,6 +226,7 @@ body {
   height: 20px;
   width: 20px;
   background-image: url(images/checkbox-active.svg);
+  background-repeat: no-repeat;
   margin-right: 5px;
 }
 
