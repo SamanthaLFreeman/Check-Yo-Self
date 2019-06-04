@@ -20,7 +20,7 @@ body {
 
 .input {
   font-size: 1em;
-  padding: 10px;
+  padding: 10px 5px;
   width: 98%;
   height: 19px;
   border: none;
@@ -110,6 +110,11 @@ body {
   margin-left: 10px;
 }
 
+.nav__container--bullet {
+  font-size: 1.1em;
+  color: #FFF;
+}
+
 .nav__container--bullet:before {
   content: '';
   display: inline-block;
@@ -123,12 +128,11 @@ body {
   border: 2px solid #1F1F3D;
   border-radius: 3px;
   margin-top: 5px;
-  width: 90%;
+  width: 95%;
 }
 
 .nav__mid--label--stack {
   display: flex;
-  align-items: center;
 }
 
 .nav__mid__input--item {
@@ -138,9 +142,15 @@ body {
 }
 
 .nav__mid__img--plus {
-  background-color: #1F1F3D;
   height: 30px;
-  padding: 5px;
+}
+
+.nav__mid__btn--plus {
+  background-color: #1F1F3D;
+  border-radius: 0 3px 3px 0;
+  border: none;
+  height: 43px;
+  margin-top: 5px;
 }
 
 .nav__mid__btn--filter {
@@ -269,4 +279,28 @@ body {
 .main__template--card__img--delete,
 .main__template--card__img--urgent {
   padding-bottom: 5px;
+}
+
+@media screen and (max-width: 1000px) {
+  .main {
+    columns: auto;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  body {
+    display: inherit;
+  }
+  .nav__top__input--title {
+    width: 98%;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .header {
+    flex-direction: column;
+  }
+  .nav__top__input--title {
+    width: 97%;
+  }
 }

@@ -29,7 +29,7 @@
         <label class='nav__mid--label'>
           Task Item
           <div class='nav__mid--label--stack'>
-            <input type='text' class='input nav__mid__input--item' id='js-input-item' placeholder='Add task here, then click "+"'>
+            <input type='text' class='input nav__mid__input--item' id='js-input-item' placeholder='Add your tasks here'>
             <button class='nav__mid__btn--plus' id='js-plus-btn' disabled='true'>
               <img src='images/plus.svg' class='nav__mid__img--plus' alt='add-symbol' />
             </button>
@@ -49,8 +49,9 @@
           </div>
           <div class='main__template--card--mid'>
             <ul class='main__template--card--list'>
-              <li class='main__template--card--bullet'>Add your own card.</li>
+              <li class='main__template--card--bullet--active'>Add your own card.</li>
               <li class='main__template--card--bullet'>Enter your task title and tasks on the left.</li>
+              <li class='main__template--card--bullet'>Click + button to add additional task.</li>
             </ul>
           </div>
           <div class='main__template--card--bottom'>
@@ -65,27 +66,6 @@
           </div>
         </article>
     </main>
-  <!--       <article class='main__template--card' data-id=${id}>
-          <div class='main__template--card--top'>
-            <h2 class='main__template--card--title'>${title}</h2>
-          </div>
-          <div class='main__template--card--mid'>
-            <ul class='main__template--card--list'>
-              <li class='main__template--card--bullet'>Don't ever play yourself.</li>
-              ${task}
-            </ul>
-          </div>
-          <div class='main__template--card--bottom'>
-            <label class='main__template--card__label--urgent'>
-              <img src='images/urgent.svg' class='img main__template--card__img--urgent' id='js-urgent-btn' alt='urgent-icon' />
-              URGENT
-            </label>
-            <label class='main__template--card__label--delete'>
-              <img src='images/delete.svg' class='img main__template--card__img--delete' id='js-delete-btn' alt='delete-icon' />
-              DELETE
-            </label>
-          </div>
-        </article> -->
     <script type='text/javascript' src='todo-list.js'></script>
     <script type='text/javascript' src='main.js'></script>
   </body>
