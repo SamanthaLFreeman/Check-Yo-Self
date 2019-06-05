@@ -17,7 +17,7 @@ addBtn.addEventListener('click', addTaskList);
 taskList.addEventListener('click', removeFromTaskList);
 makeTaskBtn.addEventListener('click', createTasksArray);
 clearBtn.addEventListener('click', clearNav);
-filterBtn.addEventListener('click', filterUrgency);
+filterBtn.addEventListener('click', changeUrgencyClass);
 // urgentBtn.addEventListener('click', );
 // deleteBtn.addEventListener('click', );
 searchInput.addEventListener('keyup', filterTitles);
@@ -231,12 +231,22 @@ function filterTitles(e) {
     })
 };
 
-function filterUrgency(e) {
+function changeUrgencyClass(e) {
+  if (e.target.className === 'btn nav__mid__btn--filter') {
+    filterUrgency();
+    e.target.setAttribute('class', 'btn nav__mid__btn--filter--orange')
+  } else {
+    cardSection.innerText = '';
+    pageLoad();
+    e.target.setAttribute('class', 'btn nav__mid__btn--filter');  
+  }
+}
+
+function filterUrgency() {
   cardSection.innerText = '';
   var results = toDoArray.filter(function(toDo) {
     return toDo.urgent === true;
   })
-
   results.forEach(function(toDo) {
     createCard(toDo);
   })
