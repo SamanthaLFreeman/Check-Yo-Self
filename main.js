@@ -240,7 +240,7 @@ function changeUrgencyClass(e) {
     pageLoad();
     e.target.setAttribute('class', 'btn nav__mid__btn--filter');  
   }
-}
+};
 
 function filterUrgency() {
   cardSection.innerText = '';

@@ -155,7 +155,8 @@ body {
 }
 
 .nav__mid__btn--filter--orange {
-  background-color: orange;
+  background-color: #EF4A23;
+  border: 1px solid #782616;
 }
 
 /*.nav__mid__btn--filter {
