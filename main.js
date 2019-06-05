@@ -235,6 +235,7 @@ function changeUrgencyClass(e) {
   if (e.target.className === 'btn nav__mid__btn--filter') {
     filterUrgency();
     e.target.setAttribute('class', 'btn nav__mid__btn--filter--orange')
+    createUrgentMessage();
   } else {
     cardSection.innerText = '';
     pageLoad();
@@ -251,4 +252,32 @@ function filterUrgency() {
   results.forEach(function(toDo) {
     createCard(toDo);
   })
+};
+
+function createUrgentMessage() {
+  if (cardSection.innerText === '') {
+  cardSection.insertAdjacentHTML('afterbegin',
+    `   <article class='main__template--card--active'>
+          <div class='main__template--card--top--active'>
+            <h2 class='main__template--card--title'>Example Urgent Task</h2>
+          </div>
+          <div class='main__template--card--mid'>
+            <ul class='main__template--card--list'>
+              <li class='main__template--card--bullet--active'>Add your own card.</li>
+              <li class='main__template--card--bullet'>Toggle urgent by clicking the lower left.</li>
+              <li class='main__template--card--bullet'>Click 'Filter by Urgency' to return to all cards.</li>
+            </ul>
+          </div>
+          <div class='main__template--card--bottom--active'>
+            <label class='main__template--card__label--urgent--active'>
+              <img src='images/urgent-active.svg' class='img main__template--card__img--urgent' id='js-urgent-btn' alt='urgent-icon' />
+              URGENT
+            </label>
+            <label class='main__template--card__label--delete'>
+              <img src='images/delete.svg' class='img main__template--card__img--delete' id='js-delete-btn' alt='delete-icon' />
+              DELETE
+            </label>
+          </div>
+        </article>`
+)}
 };
