@@ -17,7 +17,7 @@ addBtn.addEventListener('click', addTaskList);
 taskList.addEventListener('click', removeFromTaskList);
 makeTaskBtn.addEventListener('click', createTasksArray);
 clearBtn.addEventListener('click', clearNav);
-// filterBtn.addEventListener('click', );
+filterBtn.addEventListener('click', filterUrgency);
 // urgentBtn.addEventListener('click', );
 // deleteBtn.addEventListener('click', );
 searchInput.addEventListener('keyup', filterTitles);
@@ -229,4 +229,15 @@ function filterTitles(e) {
     results.forEach(function(toDo) {
       createCard(toDo);
     })
+};
+
+function filterUrgency(e) {
+  cardSection.innerText = '';
+  var results = toDoArray.filter(function(toDo) {
+    return toDo.urgent === true;
+  })
+
+  results.forEach(function(toDo) {
+    createCard(toDo);
+  })
 };
