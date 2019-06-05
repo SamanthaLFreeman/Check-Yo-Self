@@ -110,6 +110,7 @@ body {
 .nav__container--bullet {
   color: #FFF;
   font-size: 1.1em;
+  margin: 15px 0;
 }
 
 .nav__container--bullet:before {
