@@ -9,14 +9,14 @@
   <body>
     <header class='header'>
       <h1 class='header__h1'>CHECK <span class='header__h1-yellow'>YO'</span> SELF</h1>
-      <label class='header__label'>
+      <label class='header__label' for='Search Input'>
         <img src='images/search.svg' class='img header__label__img--search' alt='search-icon' />
         <input type='text' class='input header__label__input--search' id='js-input-search' placeholder='Search' />
       </label>
     </header>
     <nav class='nav'>
       <div class='nav__top'>
-        <label class='nav__top--label'>
+        <label class='nav__top--label' for='Title input'>
           Task Title
           <input type='text' class='input nav__top__input--title' id='js-input-title' placeholder='Add your title here'>
         </label>
@@ -26,7 +26,7 @@
         </ul>
       </div>
       <div class='nav__mid'>
-        <label class='nav__mid--label'>
+        <label class='nav__mid--label' for='Tasks input'>
           Task Item
           <div class='nav__mid--label--stack'>
             <input type='text' class='input nav__mid__input--item' id='js-input-item' placeholder='Add your tasks here'>
@@ -55,11 +55,11 @@
           </ul>
         </div>
         <div class='main__template--card--bottom'>
-          <label class='main__template--card__label--urgent'>
+          <label class='main__template--card__label--urgent' for='Urgent Icon'>
             <img src='images/urgent.svg' class='img main__template--card__img--urgent' id='js-urgent-btn' alt='urgent-icon' />
             URGENT
           </label>
-          <label class='main__template--card__label--delete'>
+          <label class='main__template--card__label--delete' for='Delete Icon'>
             <img src='images/delete.svg' class='img main__template--card__img--delete' id='js-delete-btn' alt='delete-icon' />
             DELETE
           </label>
