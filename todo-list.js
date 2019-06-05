@@ -15,12 +15,10 @@ class ToDoList {
     this.saveToStorage(toDoArray);
   }
 
-//should update the todo’s title and urgency
   updateToDo() {
     this.urgent = !this.urgent;
   }
 
-//should update a task’s content and if it has been completed
   updateTask(bulletIndex) {
     this.tasks[bulletIndex].complete = !this.tasks[bulletIndex].complete;
   }
