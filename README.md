@@ -20,4 +20,4 @@ For this Mod One project at Turing, I increased my understanding of how to itera
 ![image](https://user-images.githubusercontent.com/45364533/58964626-758e7980-876c-11e9-832f-da677585821e.png)
 
 **My Final Comp**
-![image](https://user-images.githubusercontent.com/45364533/58964904-e9308680-876c-11e9-8fee-840ec1e9847c.png)
+![image](https://user-images.githubusercontent.com/45364533/58965834-73c5b580-876e-11e9-9e19-44c21249b31c.png)
