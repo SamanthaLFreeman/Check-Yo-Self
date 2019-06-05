@@ -10,7 +10,6 @@ var urgentBtn = document.querySelector('#js-urgent-btn');
 var deleteBtn = document.querySelector('#js-delete-btn');
 var cardSection = document.querySelector('#js-card-section');
 var taskList = document.querySelector('#js-task-list');
-// var listItemImg = document.querySelector('.main__template--card--bullet:before');
 
 cardSection.addEventListener('click',handleCardActions);
 addBtn.addEventListener('click', addTaskList);
@@ -18,8 +17,6 @@ taskList.addEventListener('click', removeFromTaskList);
 makeTaskBtn.addEventListener('click', createTasksArray);
 clearBtn.addEventListener('click', clearNav);
 filterBtn.addEventListener('click', changeUrgencyClass);
-// urgentBtn.addEventListener('click', );
-// deleteBtn.addEventListener('click', );
 searchInput.addEventListener('keyup', filterTitles);
 titleInput.addEventListener('keyup', disableClearBtn);
 itemInput.addEventListener('keyup', disableClearBtn);
@@ -74,7 +71,6 @@ function saveToDo(objectArray) {
   toDoArray.push(toDo);
   toDo.saveToStorage(toDoArray);
   createCard(toDo);
-  // displayTasks(toDo);
 };
 
 function createTasksArray() {
@@ -84,7 +80,8 @@ function createTasksArray() {
   for (var i = 0; i < tasksArray.length; i++) {
     var newTask = tasksArray[i].innerText;
     objectArray.push({complete: false, task: `${newTask}`});
-    }
+  }
+
   saveToDo(objectArray);
 };
 
@@ -95,9 +92,11 @@ function displayTasks(toDo) {
     var completeTask = toDo.tasks[i].complete === true ? 'main__template--card--bullet--active' : 'main__template--card--bullet';
     addLiArray.push(`<li class=${completeTask} data-index=${[i]}>${toDo.tasks[i].task} </li>`);
   }
+
   for (var i = 0; i < addLiArray.length; i++) {
     objectTask += addLiArray[i];
   }
+
   return objectTask;
 };
 
@@ -187,11 +186,12 @@ function deleteCard(e, id) {
 
 function checkAllCheckboxes(e, id) {
   var foundIndexCard = findIndexInArray(id);
-    var checkedOff = toDoArray[foundIndexCard].tasks.every(function(task){
+  var checkedOff = toDoArray[foundIndexCard].tasks.every(function(task){
     return task.complete === true;
   }) 
-    if (checkedOff === true) {
-      deleteCard(e, foundIndexCard);
+
+  if (checkedOff === true) {
+    deleteCard(e, foundIndexCard);
   }
 };
 
@@ -222,13 +222,13 @@ function urgentCardChange(e, urgent) {
 function filterTitles(e) {
   var searchTextField = e.target.value.toLowerCase();
   var results = toDoArray.filter(function(toDo) {
-      return toDo.title.toLowerCase().includes(searchTextField);
-    })
+    return toDo.title.toLowerCase().includes(searchTextField);
+  })
   
-    cardSection.innerText = '';
-    results.forEach(function(toDo) {
-      createCard(toDo);
-    })
+  cardSection.innerText = '';
+  results.forEach(function(toDo) {
+    createCard(toDo);
+  })
 };
 
 function changeUrgencyClass(e) {
@@ -247,6 +247,7 @@ function filterUrgency() {
   var results = toDoArray.filter(function(toDo) {
     return toDo.urgent === true;
   })
+  
   results.forEach(function(toDo) {
     createCard(toDo);
   })
